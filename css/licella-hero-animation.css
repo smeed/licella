@@ -21,7 +21,7 @@ html, body {
   width: 1920px;
   height: 1080px;
   margin: auto;
-  background-image: url("/img/background.png");
+  background-image: url("../img/background.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,10 +37,21 @@ html, body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #right-side {
-  width: 925px;
+  width: 100%;
+  max-width: 925px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,6 +59,9 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   overflow: hidden;
 }
 
@@ -67,24 +81,24 @@ html, body {
           transform: rotateZ(-120deg);
 }
 #hero-graphic .ball-right {
-  background-image: url("/img/hero-graphic/ball-right.svg");
+  background-image: url("../img/hero-graphic/ball-right.svg");
   mix-blend-mode: multiply;
   z-index: 5;
-  -webkit-animation: fadeIn 1s ease-in forwards, justRotate 2s 1.5s ease-in-out forwards;
-          animation: fadeIn 1s ease-in forwards, justRotate 2s 1.5s ease-in-out forwards;
+  -webkit-animation: fadeIn 0.75s ease-in forwards, justRotate 1.5s 1.125s ease-in-out forwards;
+          animation: fadeIn 0.75s ease-in forwards, justRotate 1.5s 1.125s ease-in-out forwards;
 }
 #hero-graphic .ball-bottom {
-  background-image: url("/img/hero-graphic/ball-bottom.svg");
-  z-index: 6;
-  -webkit-animation: fadeInRotate 2s 3s ease-in-out forwards;
-          animation: fadeInRotate 2s 3s ease-in-out forwards;
+  background-image: url("../img/hero-graphic/ball-bottom.svg");
+  z-index: 4;
+  -webkit-animation: fadeInRotate 1.5s 2.25s ease-in-out forwards;
+          animation: fadeInRotate 1.5s 2.25s ease-in-out forwards;
 }
 #hero-graphic .ball-left {
-  background-image: url("/img/hero-graphic/ball-left.svg");
+  background-image: url("../img/hero-graphic/ball-left.svg");
   mix-blend-mode: multiply;
-  z-index: 4;
-  -webkit-animation: fadeInRotate 2s 4.5s ease-in-out forwards;
-          animation: fadeInRotate 2s 4.5s ease-in-out forwards;
+  z-index: 3;
+  -webkit-animation: fadeInRotate 1.5s 3.375s ease-in-out forwards;
+          animation: fadeInRotate 1.5s 3.375s ease-in-out forwards;
 }
 #hero-graphic .mask {
   -webkit-mask-repeat: no-repeat;
@@ -94,8 +108,8 @@ html, body {
   mask-mode: luminance;
   -webkit-mask-composite: xor;
           mask-composite: exclude;
-  -webkit-mask-image: url("/img/hero-graphic/opacity-mask2.svg");
-          mask-image: url("/img/hero-graphic/opacity-mask2.svg");
+  -webkit-mask-image: url("../img/hero-graphic/opacity-mask2.svg");
+          mask-image: url("../img/hero-graphic/opacity-mask2.svg");
   opacity: 0;
 }
 #hero-graphic .mask .graphic {
@@ -106,34 +120,34 @@ html, body {
 }
 #hero-graphic .mask-right {
   z-index: 2;
-  -webkit-animation: rotateMaskRight 2s 1.501s ease-in-out forwards;
-          animation: rotateMaskRight 2s 1.501s ease-in-out forwards;
+  -webkit-animation: rotateMaskRight 1.5s 1.12575s ease-in-out forwards;
+          animation: rotateMaskRight 1.5s 1.12575s ease-in-out forwards;
   opacity: 0;
 }
 #hero-graphic .mask-right .graphic {
-  background-image: url("/img/hero-graphic/bg-right.png");
-  -webkit-animation: rotateGraphicRight 2s 1.501s ease-in-out forwards;
-          animation: rotateGraphicRight 2s 1.501s ease-in-out forwards;
+  background-image: url("../img/hero-graphic/bg-right.png");
+  -webkit-animation: rotateGraphicRight 1.5s 1.12575s ease-in-out forwards;
+          animation: rotateGraphicRight 1.5s 1.12575s ease-in-out forwards;
 }
 #hero-graphic .mask-bottom {
   z-index: 3;
-  -webkit-animation: rotateMaskBottom 2s 3s ease-in-out forwards;
-          animation: rotateMaskBottom 2s 3s ease-in-out forwards;
+  -webkit-animation: rotateMaskBottom 1.5s 2.25s ease-in-out forwards;
+          animation: rotateMaskBottom 1.5s 2.25s ease-in-out forwards;
 }
 #hero-graphic .mask-bottom .graphic {
-  background-image: url("/img/hero-graphic/bg-bottom.png");
-  -webkit-animation: rotateGraphicBottom 2s 3s ease-in-out forwards;
-          animation: rotateGraphicBottom 2s 3s ease-in-out forwards;
+  background-image: url("../img/hero-graphic/bg-bottom.png");
+  -webkit-animation: rotateGraphicBottom 1.5s 2.25s ease-in-out forwards;
+          animation: rotateGraphicBottom 1.5s 2.25s ease-in-out forwards;
 }
 #hero-graphic .mask-left {
   z-index: 1;
-  -webkit-animation: rotateMaskLeft 2s 4.5s ease-in-out forwards;
-          animation: rotateMaskLeft 2s 4.5s ease-in-out forwards;
+  -webkit-animation: rotateMaskLeft 1.5s 3.375s ease-in-out forwards;
+          animation: rotateMaskLeft 1.5s 3.375s ease-in-out forwards;
 }
 #hero-graphic .mask-left .graphic {
-  background-image: url("/img/hero-graphic/bg-left.png");
-  -webkit-animation: rotateGraphicLeft 2s 4.5s ease-in-out forwards;
-          animation: rotateGraphicLeft 2s 4.5s ease-in-out forwards;
+  background-image: url("../img/hero-graphic/bg-left.png");
+  -webkit-animation: rotateGraphicLeft 1.5s 3.375s ease-in-out forwards;
+          animation: rotateGraphicLeft 1.5s 3.375s ease-in-out forwards;
 }
 
 @-webkit-keyframes fadeIn {
@@ -179,26 +193,26 @@ html, body {
 }
 @-webkit-keyframes fadeInRotate {
   0% {
-    opacity: 0; /* Element is invisible at the start */
+    opacity: 0;
     -webkit-transform: rotateZ(-120deg);
-            transform: rotateZ(-120deg); /* Initial rotation */
+            transform: rotateZ(-120deg);
   }
   100% {
-    opacity: 1; /* Element is fully visible at the end */
+    opacity: 1;
     -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg); /* Rotate to 0 degrees */
+            transform: rotateZ(0deg);
   }
 }
 @keyframes fadeInRotate {
   0% {
-    opacity: 0; /* Element is invisible at the start */
+    opacity: 0;
     -webkit-transform: rotateZ(-120deg);
-            transform: rotateZ(-120deg); /* Initial rotation */
+            transform: rotateZ(-120deg);
   }
   100% {
-    opacity: 1; /* Element is fully visible at the end */
+    opacity: 1;
     -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg); /* Rotate to 0 degrees */
+            transform: rotateZ(0deg);
   }
 }
 @-webkit-keyframes rotateMaskRight {

@@ -39,7 +39,35 @@
   </div>
 
 
-  <script src="js/licella-hero-animation.js"></script>
+<script>
+  function adjustScale() {
+    const heroGraphic = document.getElementById('hero-graphic');
+    
+    // Get the window width
+    const windowWidth = window.innerWidth;
+    
+    // Define the minimum and maximum scale values
+    const minScale = 0.25;
+    const maxScale = 1;
+    
+    // Define the range of window width for scaling
+    const minWidth = 600;  // Minimum window width for 1x scale (maximum scale)
+    const maxWidth = 1200; // Maximum window width for 0.5x scale (minimum scale)
+    
+    // Calculate scale based on the window width (clamped between min and max scale)
+    let scale = (windowWidth - minWidth) / (maxWidth - minWidth);
+    scale = Math.max(minScale, Math.min(maxScale, scale));
+
+    // Apply the scale to the element
+    heroGraphic.style.transform = `scale(${scale})`;
+  }
+
+  // Initial scale adjustment on page load
+  adjustScale();
+
+  // Adjust scale dynamically on window resize
+  window.addEventListener('resize', adjustScale);
+</script>
 
 </body>
 

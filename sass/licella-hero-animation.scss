@@ -1,3 +1,13 @@
+//Adjust the animation speed to increase/decrease timing
+$animation_speed: 1.5s;
+//-------------------------------
+$step1_animation: $animation_speed #{$animation_speed*0.7505} ease-in-out forwards;
+$step2_animation: $animation_speed #{$animation_speed*1.5} ease-in-out forwards;
+$step3_animation: $animation_speed #{$animation_speed*2.25} ease-in-out forwards;
+//-----------------------------
+
+
+//--BEGIN UNNECESSARY STUFF JUST FOR DEVELOPMENT AND DEMO---
 html, body{
     width: 100%;
     height: 100%;
@@ -9,14 +19,12 @@ html, body{
     justify-content: center;
 }
 
-
-
 #background{
     position: relative;
     width: 1920px;
     height: 1080px;
     margin: auto;
-    background-image: url('/img/background.png');
+    background-image: url('../img/background.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,29 +33,31 @@ html, body{
 }
 
 #left-side{
-    // background: red;
     flex: 1;
+    border:1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #right-side{
-    // background: rgba(0, 255, 0, 0.2);
-    width: 925px;
+    width: 100%;
+    max-width: 925px;
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
+//--END UNNCESSARY STUFF------------------------
 
-$animation_speed: 2s;
-$step1_animation: $animation_speed #{$animation_speed*0.7505} ease-in-out forwards;
-$step2_animation: $animation_speed 3s ease-in-out forwards;
-$step3_animation: $animation_speed 4.5s ease-in-out forwards;
 
+//--COPY+PASTE EVERYTHING BELOW THIS LINE FOR ANIMATION ------------
 #hero-graphic{
     width: 820px;
     height: 820px;
-    // background: rgba(255,0,0,0.1);
     position: relative;
+
     > div{
         width: 100%;
         height: 100%;
@@ -60,22 +70,22 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
     }
 
     .ball-right{
-        background-image: url('/img/hero-graphic/ball-right.svg');
+        background-image: url('../img/hero-graphic/ball-right.svg');
         mix-blend-mode: multiply;
         z-index: 5;
-        animation: fadeIn #{$animation_speed/2} ease-in forwards, justRotate $animation_speed 1.5s ease-in-out forwards;
+        animation: fadeIn #{$animation_speed/2} ease-in forwards, justRotate $animation_speed #{$animation_speed*0.75} ease-in-out forwards;
     }
 
     .ball-bottom{
-        background-image: url('/img/hero-graphic/ball-bottom.svg');
-        z-index: 6;
+        background-image: url('../img/hero-graphic/ball-bottom.svg');
+        z-index: 4;
         animation: fadeInRotate $step2_animation;
     }
 
     .ball-left{
-        background-image: url('/img/hero-graphic/ball-left.svg');
+        background-image: url('../img/hero-graphic/ball-left.svg');
         mix-blend-mode: multiply;
-        z-index: 4;
+        z-index: 3;
         animation: fadeInRotate $step3_animation;
     }
 
@@ -84,7 +94,7 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
         mask-size: cover;
         mask-mode: luminance;
         mask-composite: exclude;
-        mask-image: url('/img/hero-graphic/opacity-mask2.svg');
+        mask-image: url('../img/hero-graphic/opacity-mask2.svg');
         opacity: 0;
         .graphic{
             width: 100%;
@@ -99,7 +109,7 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
         animation: rotateMaskRight $step1_animation;
         opacity: 0;
         .graphic{
-            background-image: url('/img/hero-graphic/bg-right.png');
+            background-image: url('../img/hero-graphic/bg-right.png');
             animation: rotateGraphicRight $step1_animation; 
         }
 
@@ -109,7 +119,7 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
         z-index: 3;
         animation: rotateMaskBottom $step2_animation;
         .graphic{
-            background-image: url('/img/hero-graphic/bg-bottom.png');
+            background-image: url('../img/hero-graphic/bg-bottom.png');
             animation: rotateGraphicBottom $step2_animation; 
         }
     }
@@ -118,7 +128,7 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
         z-index: 1;
         animation: rotateMaskLeft $step3_animation;
         .graphic{
-            background-image: url('/img/hero-graphic/bg-left.png');
+            background-image: url('../img/hero-graphic/bg-left.png');
             animation: rotateGraphicLeft $step3_animation; 
         }
     }
@@ -149,13 +159,13 @@ $step3_animation: $animation_speed 4.5s ease-in-out forwards;
 
 @keyframes fadeInRotate {
   0% {
-    opacity: 0; /* Element is invisible at the start */
-    transform: rotateZ(-120deg); /* Initial rotation */
+    opacity: 0; 
+    transform: rotateZ(-120deg); 
   }
 
   100% {
-    opacity: 1; /* Element is fully visible at the end */
-    transform: rotateZ(0deg); /* Rotate to 0 degrees */
+    opacity: 1; 
+    transform: rotateZ(0deg); 
   }
 }
 
