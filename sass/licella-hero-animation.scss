@@ -38,6 +38,10 @@ html, body{
     overflow: hidden;
 }
 
+$animation_speed: 2s;
+$step1_animation: $animation_speed #{$animation_speed*0.7505} ease-in-out forwards;
+$step2_animation: $animation_speed 3s ease-in-out forwards;
+$step3_animation: $animation_speed 4.5s ease-in-out forwards;
 
 #hero-graphic{
     width: 820px;
@@ -48,25 +52,31 @@ html, body{
         width: 100%;
         height: 100%;
         position: absolute;
-        transition: all 5s;
+    }
+
+    .ball{
+        opacity: 0;
+        transform: rotateZ(-120deg);
     }
 
     .ball-right{
         background-image: url('/img/hero-graphic/ball-right.svg');
         mix-blend-mode: multiply;
         z-index: 5;
-        // transform: rotateZ(-120deg);
+        animation: fadeIn #{$animation_speed/2} ease-in forwards, justRotate $animation_speed 1.5s ease-in-out forwards;
     }
+
     .ball-bottom{
         background-image: url('/img/hero-graphic/ball-bottom.svg');
         z-index: 6;
-        // transform: rotateZ(-120deg);
+        animation: fadeInRotate $step2_animation;
     }
+
     .ball-left{
         background-image: url('/img/hero-graphic/ball-left.svg');
         mix-blend-mode: multiply;
         z-index: 4;
-        // transform: rotateZ(-120deg);
+        animation: fadeInRotate $step3_animation;
     }
 
     .mask{
@@ -74,9 +84,8 @@ html, body{
         mask-size: cover;
         mask-mode: luminance;
         mask-composite: exclude;
-        // mask-image: url('/img/hero-graphic/opacity-mask.svg');
-        
-
+        mask-image: url('/img/hero-graphic/opacity-mask2.svg');
+        opacity: 0;
         .graphic{
             width: 100%;
             height: 100%;
@@ -87,44 +96,77 @@ html, body{
 
     .mask-right{
         z-index: 2;
-        mask-image: url('/img/hero-graphic/opacity-mask2.svg');
-        animation: rotateMaskRight 2s forwards; 
+        animation: rotateMaskRight $step1_animation;
+        opacity: 0;
         .graphic{
             background-image: url('/img/hero-graphic/bg-right.png');
-            animation: rotateGraphicRight 2s forwards; 
+            animation: rotateGraphicRight $step1_animation; 
         }
 
     }
 
     .mask-bottom{
         z-index: 3;
-        mask-image: url('/img/hero-graphic/opacity-mask2.svg');
-        animation: rotateMaskBottom 4s forwards;
+        animation: rotateMaskBottom $step2_animation;
         .graphic{
             background-image: url('/img/hero-graphic/bg-bottom.png');
-            animation: rotateGraphicBottom 4s forwards; 
+            animation: rotateGraphicBottom $step2_animation; 
         }
     }
 
     .mask-left{
         z-index: 1;
-        mask-image: url('/img/hero-graphic/opacity-mask2.svg');
-        animation: rotateMaskLeft 6s forwards;
+        animation: rotateMaskLeft $step3_animation;
         .graphic{
             background-image: url('/img/hero-graphic/bg-left.png');
-            animation: rotateGraphicLeft 6s forwards; 
+            animation: rotateGraphicLeft $step3_animation; 
         }
     }
 
 
 }
 
-//-----------
-@keyframes rotateMaskRight {
+
+@keyframes fadeIn {
   0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+  }
+}
+
+@keyframes justRotate {
+  0% {
+    opacity: 1; 
     transform: rotateZ(-120deg);
   }
   100% {
+    opacity: 1; 
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes fadeInRotate {
+  0% {
+    opacity: 0; /* Element is invisible at the start */
+    transform: rotateZ(-120deg); /* Initial rotation */
+  }
+
+  100% {
+    opacity: 1; /* Element is fully visible at the end */
+    transform: rotateZ(0deg); /* Rotate to 0 degrees */
+  }
+}
+
+//-----------
+@keyframes rotateMaskRight {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-120deg);
+  }
+  100% {
+    opacity: 1;
     transform: rotateZ(0deg);
   }
 }
@@ -142,9 +184,11 @@ html, body{
 //-----------
 @keyframes rotateMaskBottom {
   0% {
+    opacity: 0;
     transform: rotateZ(0deg);
   }
   100% {
+    opacity: 1;
     transform: rotateZ(120deg);
   }
 }
@@ -162,9 +206,11 @@ html, body{
 //-----------
 @keyframes rotateMaskLeft {
   0% {
+    opacity: 0;
     transform: rotateZ(120deg);
   }
   100% {
+    opacity: 1;
     transform: rotateZ(240deg);
   }
 }

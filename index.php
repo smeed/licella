@@ -20,9 +20,9 @@
 
     <div id="right-side">
         <div id="hero-graphic">
-          <div class="ball-right"></div>
-          <div class="ball-bottom"></div>
-          <div class="ball-left"></div>
+          <div class="ball ball-right"></div>
+          <div class="ball ball-bottom"></div>
+          <div class="ball ball-left"></div>
 
           <div class="mask mask-right">
             <div class="graphic"></div>
