@@ -14,6 +14,28 @@
   
   <div id="background">
 
+    <div id="left-side">
+      [left side]
+    </div>
+
+    <div id="right-side">
+        <div id="hero-graphic">
+          <div class="ball-right"></div>
+          <div class="ball-bottom"></div>
+          <div class="ball-left"></div>
+
+          <div class="mask mask-right">
+            <div class="graphic"></div>
+          </div>
+          <div class="mask mask-bottom">
+            <div class="graphic"></div>
+          </div>
+          <div class="mask mask-left">
+            <div class="graphic"></div>
+          </div>
+
+        </div>
+    </div>
   </div>
 
 
